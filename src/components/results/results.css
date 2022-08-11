@@ -1,4 +1,4 @@
-.main-div {
+section {
   box-sizing: border-box;
   padding: 10px;
   margin-top: 10%;
@@ -12,7 +12,7 @@
   opacity: 95%;
   flex-wrap: wrap;
 }
-.main-div .loader {
+section .loader {
   color: #ffffff;
   font-size: 30px;
   text-indent: -9999em;

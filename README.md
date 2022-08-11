@@ -6,6 +6,19 @@ It is a simple application to do REST Api methods
 
 - React.js
 - Sass
+- React Hooks
+
+## Test For The App
+
+✓ load and dispaly App.
+
+✓ handle input change.
+
+✓ handle submit.
+
+✓ handle click.
+
+✓ handle results.
 
 ## UML Diagram
 

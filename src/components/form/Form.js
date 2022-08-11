@@ -4,7 +4,7 @@ import './form.css'
 function Form(props) {
   const [click, setClick] = useState('GET');
   const [url, setUrl] = useState('');
-  const [body, setBody] = useState('');
+  const [body, setBody] = useState({});
 
 
   const handleSubmit = e => {
@@ -37,22 +37,21 @@ function Form(props) {
       <form onSubmit={handleSubmit}>
         <label className='label-input'>
           <span>URL: </span>
-          <input name='url' type='text' className='input' placeholder='Inter a URL' onChange={handelUrl} />
-          <button type="submit" className='btn'>GO!</button>
+          <input name='url' type='text' className='input' placeholder='Inter a URL' data-testid='input' onChange={handelUrl} />
+          <button type="submit" className='btn' data-testid='submit'>GO!</button>
         </label>
         <label className="methods">
           <div className='btns'>
-            <button id="get" onClick={handelClick} value='GET'>GET</button>
-            <button id="post" onClick={handelClick} value='POST'>POST</button>
-            <button id="put" onClick={handelClick} value='PUT'>PUT</button>
+            <button id="get" data-testid='get' onClick={handelClick} value='GET'>GET</button>
+            <button id="post" data-testid='post' onClick={handelClick} value='POST'>POST</button>
+            <button id="put" data-testid='put' onClick={handelClick} value='PUT'>PUT</button>
             <button id="delete" onClick={handelClick} value='DELETE'>DELETE</button>
           </div>
         </label>
-        {/* {handelClick === 'POST' || handelClick === 'PUT' ? <input type='text' className='label-input-body' /> : null} */}
-        <input type='text' className='label-input-body' onChange={handleBody} placeholder='Write a json object' />
+        {click === 'POST' || click === 'PUT' ? <input type='JSON' className='label-input-body' onChange={handleBody} placeholder='Write a json object' /> : null}
       </form>
     </>
   )
 }
 
-export default Form
+export default Form;

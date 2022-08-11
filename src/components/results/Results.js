@@ -2,26 +2,15 @@ import React from 'react'
 import './results.css'
 
 function Results(props) {
-  console.log('data result', props.data);
-  console.log('method result', props.method);
-
+  // console.log('props', props.bodyData);
+  let body = JSON.stringify(props.bodyData);
   return (
-    <div className='main-div'>
+    <section data-testid='results'>
       {
-        props.method === 'GET' ?
-          <div>
-            <div className='count'>Count: {props.data.count}</div>
-            <div className='next'>Next: {props.data.next}</div>
-            {props.data.results.map(result => (
-              <div key={result.name} className='result'>
-                <div className='name'>Name: {result.name}</div>
-                <div className='url'>URL: {result.url}</div>
-              </div>
-            ))}
-          </div>
-          : props.method === 'POST' ? null : props.method === 'PUT' ? null : props.method === 'DELETE' ? null : <div className='loader'></div>
+        props.method === 'GET' ? props.data.name
+          : props.method === 'POST' ? body : props.method === 'PUT' ? body : props.method === 'DELETE' ? 'Deleted' : <div className='loader'></div>
       }
-    </div>
+    </section>
   )
 }
 
