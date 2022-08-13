@@ -10,6 +10,7 @@ function App() {
   const [data, setData] = useState(null);
   const [reqParams, setReqParams] = useState({});
   const [bodyData, setBodyData] = useState({});
+  const [headers, setHeaders] = useState({});
 
   const callApi = async (reqParams, bodyParams) => {
     const response = await fetch(reqParams.url);
@@ -19,17 +20,20 @@ function App() {
     const body = {
       body: bodyParams.body,
     };
-    // console.log('body', body);
+    const headers = {
+      headers: reqParams.headers,
+    };
+    console.log('headers', headers);
     setBodyData(body);
+    setHeaders(headers);
   }
-  // console.log('bodyData', bodyData);
   return (
     <>
       <Header />
       <div className='url'>URL: {reqParams.url}</div>
       <div className='req'>Request Method: {reqParams.method}</div>
       <Form handleApiCall={callApi} />
-      <Results data={data} method={reqParams.method} bodyData={bodyData} />
+      <Results data={data} method={reqParams.method} bodyData={bodyData} headers={headers} />
       <Footer />
     </>
   )

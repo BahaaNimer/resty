@@ -4,7 +4,7 @@ import './form.css'
 function Form(props) {
   const [click, setClick] = useState('GET');
   const [url, setUrl] = useState('');
-  const [body, setBody] = useState({});
+  const [body, setBody] = useState('');
 
 
   const handleSubmit = e => {
@@ -12,6 +12,9 @@ function Form(props) {
     const formData = {
       method: click,
       url: url,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     };
     const bodyData = {
       body: body,
@@ -48,7 +51,7 @@ function Form(props) {
             <button id="delete" onClick={handelClick} value='DELETE'>DELETE</button>
           </div>
         </label>
-        {click === 'POST' || click === 'PUT' ? <input type='JSON' className='label-input-body' onChange={handleBody} placeholder='Write a json object' /> : null}
+        {click === 'POST' || click === 'PUT' ? <textarea onChange={handleBody} /> : null}
       </form>
     </>
   )

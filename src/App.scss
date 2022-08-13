@@ -3,7 +3,7 @@ $borderColor: #2a2828;
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -11,7 +11,6 @@ body {
 body {
   // background-color: &$backgroundColor;
   background-image: url('./asset/img-1.jpg');
-  height: 100%;
 
   #root {
     display: flex;
@@ -26,6 +25,8 @@ body {
     margin: 0;
     color: #eee;
     opacity: 95%;
+    bottom: 0;
+    position: relative;
   }
 
   header {
