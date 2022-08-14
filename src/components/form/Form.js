@@ -8,13 +8,14 @@ function Form(props) {
 
 
   const handleSubmit = e => {
+    const header = {
+      'Content-Type': 'application/json',
+    };
     e.preventDefault();
     const formData = {
       method: click,
       url: url,
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: "Headers" + JSON.stringify(header, null, 2),
     };
     const bodyData = {
       body: body,
@@ -32,7 +33,8 @@ function Form(props) {
   }
   const handleBody = e => {
     e.preventDefault();
-    setBody(e.target.value);
+    const formattedBody = JSON.stringify(JSON.parse(e.target.value), null, 4);
+    setBody(formattedBody);
   }
 
   return (
@@ -51,7 +53,7 @@ function Form(props) {
             <button id="delete" onClick={handelClick} value='DELETE'>DELETE</button>
           </div>
         </label>
-        {click === 'POST' || click === 'PUT' ? <textarea onChange={handleBody} /> : null}
+        {click === 'POST' || click === 'PUT' ? <textarea className='text' onChange={handleBody} /> : null}
       </form>
     </>
   )

@@ -24,6 +24,23 @@ section .content {
   width: 100%;
   word-wrap: break-word;
 }
+section .content pre {
+  margin: 5px;
+}
+section .content .body {
+  outline: none;
+  resize: none;
+  font-family: monospace;
+  transition: background 0.25s, color 0.25s;
+}
+section .content .body:focus {
+  background: #4a4a4a;
+  color: #eeeeee;
+}
+section .content .body:hover {
+  background: #4a4a4a;
+  color: #eeeeee;
+}
 section .loader {
   color: #ffffff;
   font-size: 30px;

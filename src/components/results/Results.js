@@ -7,14 +7,15 @@ function Results(props) {
   return (
     <section data-testid='results'>
       <div className='content'>
-        <div className="header">
-          {props.method === 'GET' ? JSON.stringify(headers, undefined, '\t') : null}
-        </div>
-        <br />
-        {
-          props.method === 'GET' ? JSON.stringify(props.data, undefined, '\t')
-            : props.method === 'POST' ? body : props.method === 'PUT' ? body : props.method === 'DELETE' ? 'Deleted' : <div className='loader'></div>
-        }
+        <pre className="header">
+          {props.method === 'GET' ? headers : null}
+        </pre>
+        <pre className="body">
+          {
+            props.method === 'GET' ? props.Response
+              : props.method === 'POST' ? body : props.method === 'PUT' ? body : props.method === 'DELETE' ? 'Deleted' : <div className='loader'></div>
+          }
+        </pre>
       </div>
     </section>
   )
