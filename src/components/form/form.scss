@@ -10,6 +10,27 @@ form {
   background: $backgroundColor;
   opacity: 95%;
 
+  .text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    align-items: center;
+    justify-items: center;
+    min-height: 100px;
+    outline: none;
+    resize: none;
+    font-family: monospace;
+    transition: background 0.25s, color 0.25s;
+    &:focus {
+      background: #4a4a4a;
+      color: #eeeeee;
+    }
+    &:hover {
+      background: #4a4a4a;
+      color: #eeeeee;
+    }
+  }
+
   .label-input-body {
     display: grid;
     grid-template-columns: 1fr 1fr;

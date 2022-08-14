@@ -7,6 +7,26 @@ form {
   background: #8b8b8b;
   opacity: 95%;
 }
+form .text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  align-items: center;
+  justify-items: center;
+  min-height: 100px;
+  outline: none;
+  resize: none;
+  font-family: monospace;
+  transition: background 0.25s, color 0.25s;
+}
+form .text:focus {
+  background: #4a4a4a;
+  color: #eeeeee;
+}
+form .text:hover {
+  background: #4a4a4a;
+  color: #eeeeee;
+}
 form .label-input-body {
   display: grid;
   grid-template-columns: 1fr 1fr;

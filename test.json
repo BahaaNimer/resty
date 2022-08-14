@@ -1,4 +1,7 @@
 {
   "name": "bahaa",
-  "age": "20"
+  "age": "20",
+  "Headers": {
+    "Content-Type": "application/json"
+  }
 }
