@@ -30,8 +30,7 @@ function App() {
   const callApi = async (reqParams, bodyParams) => {
     const response = await fetch(reqParams.url);
     const data = await response.json();
-    const record = "Response: " + JSON.stringify(data, null, 2);
-    setData(record);
+    setData(data);
     setReqParams(reqParams);
     const body = {
       body: bodyParams.body,

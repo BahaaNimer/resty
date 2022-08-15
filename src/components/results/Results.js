@@ -1,9 +1,13 @@
 import React from 'react'
 import './results.css'
+import JSONPretty from 'react-json-pretty';
 
 function Results(props) {
   let body = props.bodyData.body;
   let headers = props.headers.headers;
+  const deleted = {
+    "Response": "Record deleted successfully",
+  }
   return (
     <section data-testid='results'>
       <div className='content'>
@@ -12,8 +16,8 @@ function Results(props) {
         </pre>
         <pre className="body">
           {
-            props.method === 'GET' ? props.Response
-              : props.method === 'POST' ? body : props.method === 'PUT' ? body : props.method === 'DELETE' ? 'Deleted' : <div className='loader'></div>
+            props.method === 'GET' ? <JSONPretty id='json-pretty' data={props.Response} />
+              : props.method === 'POST' ? <JSONPretty id='json-pretty' data={body} /> : props.method === 'PUT' ? <JSONPretty id='json-pretty' data={body} /> : props.method === 'DELETE' ? <JSONPretty id='json-pretty' data={deleted} /> : <div className='loader'>Loading...</div>
           }
         </pre>
       </div>
