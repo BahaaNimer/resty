@@ -28,17 +28,64 @@ function App() {
   }, [data, reqParams, bodyData, headers]);
 
   const callApi = async (reqParams, bodyParams) => {
-    const response = await fetch(reqParams.url);
-    const data = await response.json();
-    setData(data);
+
+    // get the data from the url
+    if (reqParams.method === 'GET') {
+      const response = await fetch(reqParams.url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+      setData(data);
+
+      // add record to the data 
+    } else if (reqParams.method === 'POST') {
+      const addRecord = await fetch(reqParams.url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: bodyParams.body,
+      });
+      const body = {
+        body: bodyParams.body,
+      };
+      setBodyData(body);
+      console.log(addRecord);
+
+      // update the state with the new data
+    } else if (reqParams.method === 'PUT') {
+      const updateRecord = await fetch(reqParams.url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: bodyParams.body,
+      });
+      const body = {
+        body: bodyParams.body,
+      };
+      setBodyData(body);
+      console.log(updateRecord);
+
+      // delete the record from the data
+    } else if (reqParams.method === 'DELETE') {
+      const deleteRecord = await fetch(reqParams.url, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log(deleteRecord);
+    }
     setReqParams(reqParams);
-    const body = {
-      body: bodyParams.body,
-    };
     const headers = {
-      headers: reqParams.headers,
+      "Headers": {
+        'Content-Type': 'application/json',
+      }
     };
-    setBodyData(body);
     setHeaders(headers);
   }
   return (

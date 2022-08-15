@@ -4,7 +4,7 @@ import JSONPretty from 'react-json-pretty';
 
 function Results(props) {
   let body = props.bodyData.body;
-  let headers = props.headers.headers;
+  let headers = props.headers;
   const deleted = {
     "Response": "Record deleted successfully",
   }
@@ -12,7 +12,7 @@ function Results(props) {
     <section data-testid='results'>
       <div className='content'>
         <pre className="header">
-          {props.method === 'GET' ? headers : null}
+          {props.method === 'GET' ? JSON.stringify(headers, null, 2) : null}
         </pre>
         <pre className="body">
           {
