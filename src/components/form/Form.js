@@ -8,14 +8,10 @@ function Form(props) {
 
 
   const handleSubmit = e => {
-    // const header = {
-    //   "Content-Type": "application/json",
-    // };
     e.preventDefault();
     const formData = {
       method: click,
       url: url,
-      // headers: "Headers" + JSON.stringify(header, null, 2),
     };
     const bodyData = {
       body: body,
