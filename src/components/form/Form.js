@@ -41,12 +41,17 @@ function Form(props) {
           <input name='url' type='text' className='input' placeholder='Inter a URL' data-testid='input' onChange={handelUrl} />
           <button type="submit" className='btn' data-testid='submit'>GO!</button>
         </label>
-        <label className="methods">
+        <label for='styledSelect1' className='custom-select'>
+          <span>Choose a Method: </span>
           <div className='btns'>
-            <button id="get" data-testid='get' onClick={handelClick} value='GET'>GET</button>
-            <button id="post" data-testid='post' onClick={handelClick} value='POST'>POST</button>
-            <button id="put" data-testid='put' onClick={handelClick} value='PUT'>PUT</button>
-            <button id="delete" onClick={handelClick} value='DELETE'>DELETE</button>
+            <div>
+              <select onChange={handelClick} id='styledSelect1' name='options'>
+                <option id="get" data-testid='get' value='GET'>GET</option>
+                <option id="post" data-testid='post' value='POST'>POST</option>
+                <option id="put" data-testid='put' value='PUT'>PUT</option>
+                <option id="delete" data-testid='delete' value='DELETE'>DELETE</option>
+              </select>
+            </div>
           </div>
         </label>
         {click === 'POST' || click === 'PUT' ? <textarea className='text' onChange={handleBody} placeholder='Enter valid JSON' /> : null}

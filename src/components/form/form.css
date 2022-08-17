@@ -1,3 +1,4 @@
+@charset "UTF-8";
 form {
   display: grid;
   margin: auto;
@@ -62,73 +63,48 @@ form .btn:hover {
 }
 form label {
   display: flex;
+  flex-direction: row;
   margin: 1rem 0;
   justify-content: center;
   align-items: center;
 }
-form label.methods .btns {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+form label.custom-select {
+  padding: 0.5em;
+  position: relative;
+  display: block;
+  max-width: 500px;
+  min-width: 180px;
+  margin: 0 auto;
+  border: 1px solid #6c6b6e;
+  background-color: #39383a;
+  z-index: 10;
 }
-form label.methods .btns #get {
-  cursor: pointer;
-  border-radius: 40%;
-  border: 1px solid #8b8b8b;
-  color: #8b8b8b;
-  font-weight: bold;
-  margin-right: 1rem;
-  padding: 0.25rem 0.5rem;
-  background: green;
-  width: auto;
+form label.custom-select select {
+  border: none;
+  outline: none;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  padding: 12px 55px 15px 15px;
+  font-size: 14px;
+  color: #714bb9;
 }
-form label.methods .btns #get:hover {
-  background: lightgreen;
-  color: black;
-}
-form label.methods .btns #post {
-  cursor: pointer;
-  border-radius: 40%;
-  border: 1px solid #8b8b8b;
-  color: #8b8b8b;
-  font-weight: bold;
-  margin-right: 1rem;
-  padding: 0.25rem 0.5rem;
-  background: blue;
-  width: auto;
-}
-form label.methods .btns #post:hover {
-  background: lightskyblue;
-  color: black;
-}
-form label.methods .btns #put {
-  cursor: pointer;
-  border-radius: 40%;
-  border: 1px solid #8b8b8b;
-  color: #8b8b8b;
-  font-weight: bold;
-  margin-right: 1rem;
-  padding: 0.25rem 0.5rem;
-  background: yellow;
-  width: auto;
-}
-form label.methods .btns #put:hover {
-  background: lightgoldenrodyellow;
-  color: black;
-}
-form label.methods .btns #delete {
-  cursor: pointer;
-  border-radius: 40%;
-  border: 1px solid #8b8b8b;
-  color: #8b8b8b;
-  font-weight: bold;
-  margin-right: 1rem;
-  padding: 0.25rem 0.5rem;
-  background: red;
-  width: auto;
-}
-form label.methods .btns #delete:hover {
-  background: lightcoral;
-  color: black;
+form label.custom-select select:after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  line-height: 38px;
+  content: "∨";
+  text-align: center;
+  color: #714bb9;
+  font-size: 24px;
+  border-left: 1px solid #3c1c78;
+  z-index: -1;
 }/*# sourceMappingURL=form.css.map */
