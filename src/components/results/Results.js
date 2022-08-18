@@ -25,7 +25,7 @@ function Results(props) {
             <pre className="body">
               {
                 method === 'GET' ? <JSONPretty id='json-pretty' data={data} />
-                  : method === 'POST' ? <JSONPretty id='json-pretty' data={newBody} /> : method === 'PUT' ? <JSONPretty id='json-pretty' data={newBody} /> : method === 'DELETE' ? <JSONPretty id='json-pretty' data={deleted} /> : <div className='loader'>Loading...</div>
+                  : method === 'POST' ? <JSONPretty id='json-pretty' data={newBody} /> : method === 'PUT' ? <JSONPretty id='json-pretty' data={newBody} /> : method === 'DELETE' ? <JSONPretty id='json-pretty' data={deleted} /> : null
               }
             </pre>
           </div>
